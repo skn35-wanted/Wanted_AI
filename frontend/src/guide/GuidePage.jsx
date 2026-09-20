@@ -1,4 +1,15 @@
-import { EyeOff, FileUp, Info, ScanSearch, TriangleAlert } from 'lucide-react'
+import {
+  ChevronRight,
+  EyeOff,
+  FileDown,
+  FileUp,
+  Info,
+  List,
+  MessageCircle,
+  ScanSearch,
+  Search,
+  TriangleAlert,
+} from 'lucide-react'
 import { UPLOAD_LIMITS } from '../shared/api.js'
 import { Badge, Button, DecodeText, GlowCard } from '../shared/components/index.js'
 import './guide.css'
@@ -76,6 +87,33 @@ const HANDLING = [
   { term: '마스킹한 사본', desc: '내려받을 수 있도록 임시로 두고, 30분이 지나면 자동으로 삭제합니다.' },
   { term: '데이터베이스', desc: '문서 원문은 남기지 않습니다. 무엇을 왜 탐지했는지에 대한 정제된 기록만 보관합니다.' },
   { term: '서버 기록', desc: '파일 이름과 문서 내용은 기록하지 않습니다. 처리 건수·소요 시간만 남깁니다.' },
+]
+
+const TRAINING_STEPS = [
+  {
+    number: '01',
+    Icon: List,
+    title: '훈련 상황 선택',
+    copy: '일상부터 업무까지 다양한 상황 중 원하는 훈련을 선택하세요.',
+  },
+  {
+    number: '02',
+    Icon: MessageCircle,
+    title: 'AI와 실전 대화',
+    copy: 'AI가 보내는 메시지에 직접 답장하며 대응해 보세요.',
+  },
+  {
+    number: '03',
+    Icon: Search,
+    title: '결과 확인',
+    copy: 'AI가 대화 내용을 분석해 대응 결과를 알려드립니다.',
+  },
+  {
+    number: '04',
+    Icon: FileDown,
+    title: '리포트 저장',
+    copy: '나의 대응 결과와 개선점을 PDF로 저장하고 복습하세요.',
+  },
 ]
 
 const UPLOAD_BUTTON_SELECTOR = '#upload .dropzone .btn' // UploadPage.jsx의 goToUpload()가 쓰는 것과 같은 자리
@@ -287,6 +325,41 @@ export default function GuidePage({ navigate }) {
         </div>
         <Button onClick={goToUpload}>문서 검사 시작하기 →</Button>
       </div>
+
+      <section className="training-guide rv" aria-labelledby="training-guide-title">
+        <header className="training-guide__head">
+          <p className="eyebrow">TRAINING GUIDE</p>
+          <h2 id="training-guide-title" className="training-guide__title">
+            <span>AI 보안 대응 훈련</span> 이용가이드
+          </h2>
+          <p className="training-guide__desc">
+            실제와 유사한 상황에서 직접 대응하며, AI 보안 감각을 키워보세요.
+          </p>
+        </header>
+
+        <ol className="training-guide__steps">
+          {TRAINING_STEPS.map((step, index) => (
+            <li key={step.number} className="training-guide__step">
+              <div className="training-guide__item">
+                <span className="training-guide__icon" aria-hidden="true">
+                  <step.Icon size={32} strokeWidth={1.8} />
+                </span>
+                <span className="training-guide__number">STEP {step.number}</span>
+                <h3 className="training-guide__step-title">{step.title}</h3>
+                <p className="training-guide__copy">{step.copy}</p>
+              </div>
+              {index < TRAINING_STEPS.length - 1 ? (
+                <ChevronRight className="training-guide__arrow" size={24} strokeWidth={1.5} aria-hidden="true" />
+              ) : null}
+            </li>
+          ))}
+        </ol>
+
+        <div className="training-guide__cta">
+          <Button size="lg" onClick={() => navigate('training')}>훈련 시작하기 →</Button>
+          <p>지금, 더 안전한 나를 만들어보세요.</p>
+        </div>
+      </section>
     </div>
   )
 }
