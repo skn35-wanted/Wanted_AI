@@ -446,6 +446,126 @@
   word-break: keep-all;
 }
 
+/* --- AI 보안 대응 훈련 이용가이드 --- */
+
+.training-guide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-8);
+  padding: var(--space-10) 0 0;
+  border-top: 1px solid var(--color-divider);
+  text-align: center;
+}
+
+.training-guide__head {
+  max-width: 720px;
+}
+
+.training-guide__head .eyebrow {
+  margin-top: 0;
+}
+
+.training-guide__title {
+  margin: 0;
+  color: var(--color-text);
+  font-size: clamp(var(--font-size-2xl), 1.4rem + 1.7vw, var(--font-size-3xl));
+  line-height: var(--line-height-tight);
+  letter-spacing: -0.04em;
+  word-break: keep-all;
+}
+
+.training-guide__title span {
+  color: var(--color-primary);
+}
+
+.training-guide__desc {
+  margin: var(--space-4) 0 0;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-body);
+  word-break: keep-all;
+}
+
+.training-guide__steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-7);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.training-guide__step {
+  position: relative;
+  min-width: 0;
+}
+
+.training-guide__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.training-guide__icon {
+  display: grid;
+  place-items: center;
+  width: 80px;
+  height: 80px;
+  margin-bottom: var(--space-4);
+  border: 1px solid var(--color-primary-line-soft);
+  border-radius: var(--radius-pill);
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+.training-guide__number {
+  color: var(--color-primary);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.04em;
+}
+
+.training-guide__step-title {
+  margin: var(--space-2) 0 0;
+  color: var(--color-text);
+  font-size: var(--font-size-lg);
+  letter-spacing: -0.03em;
+}
+
+.training-guide__copy {
+  max-width: 260px;
+  margin: var(--space-3) 0 0;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+  word-break: keep-all;
+}
+
+.training-guide__arrow {
+  display: none;
+  color: var(--color-primary-line-strong);
+}
+
+.training-guide__cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.training-guide__cta .btn {
+  min-width: 240px;
+}
+
+.training-guide__cta p {
+  margin: 0;
+  color: var(--color-text-faint);
+  font-size: var(--font-size-sm);
+}
+
 @media (prefers-reduced-motion: no-preference) {
   /* 스크롤 등장(.motion .rv.in { transform: none })보다 우선해야 떠오르는 효과가 살아난다 */
   .guide-step:hover,
@@ -475,6 +595,11 @@
     flex-shrink: 0;
     width: 150px;
   }
+
+  .training-guide__steps {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: var(--space-9);
+  }
 }
 
 @media (min-width: 960px) {
@@ -494,5 +619,28 @@
   /* 유형 카드는 네 묶음이라 3열에서 한 칸이 빈다. 숨은 명령 카드가 그 자리를 채운다. */
   .guide-target--hidden {
     grid-column: span 2;
+  }
+
+  .training-guide__steps {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-6);
+  }
+
+  .training-guide__step {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .training-guide__item {
+    width: 100%;
+  }
+
+  .training-guide__arrow {
+    position: absolute;
+    top: 28px;
+    right: calc(var(--space-3) * -1);
+    display: block;
+    transform: translateX(50%);
   }
 }
