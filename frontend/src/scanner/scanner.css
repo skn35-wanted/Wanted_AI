@@ -1252,37 +1252,36 @@
 }
 
 /* 가려진 자리에 "[유형]" 라벨을 올린다 — DOCX/XLSX의 .mask-token과 같은 뜻을
-   PDF·이미지에서도 통일해서 보여 달라는 요청(2026-09-21)으로 다시 넣는다.
-   전에 한 번 넣었다가 뺐다(2026-09-20, "[사업자등록번호]"가 좁은 칸 안에서 잘려
-   깨진 글자로 보임) — 그때는 라벨을 상자 폭에 맞춰 clip한 게 원인이었다. 이번엔
-   두 가지로 그 문제를 피한다.
-     1) overflow를 막지 않고 nowrap만 준다 — 상자보다 라벨이 넓으면 안 잘리고
-        좌우로 고르게 삐져나온다(글자가 깨지는 대신 옆 칸을 살짝 덮을 수는 있다).
-     2) 글자 크기를 고정 px가 아니라 쪽 그림 폭 기준 컨테이너 쿼리 단위(cqw)로
-        정한다 — .rendered-page__stage·.image-preview__stage에 이미 걸려 있는
-        container-type: inline-size를 쓴다. 화면 크기·줌에 따라 쪽 그림이 커지고
-        작아지는 만큼 라벨도 같이 커지고 작아져서, 큰 화면에서 라벨만 작아 안 보이거나
-        작은 화면에서 라벨이 원래 글자 상자보다 훨씬 커지는 일이 줄어든다. */
+   PDF·이미지에서도 통일해서 보여 달라는 요청(2026-09-21)으로 넣었다.
+   두 번 어긋났던 자리다. 상자 폭에 맞춰 잘랐더니 `사업사능목번호`처럼 깨져 보였고
+   (2026-09-20), 7px 최소 크기를 두었더니 모바일에서 칸보다 라벨이 커져 옆 줄을
+   덮었다(2026-09-21, 아이폰 계약서.pdf 1쪽).
+   최소 크기를 없애고 쪽 그림 폭에만 비례시킨다 — 모바일에서 쪽 전체가 축소돼
+   본문이 3~4px로 그려지는데 라벨만 7px이면 그 혼자 튀어 넘친다. 쪽과 같은 비율로
+   줄어들면 "사본에 찍힌 글자"처럼 자연스럽게 앉는다(실측: 쪽 폭 243px → 3.2px,
+   PC 735px → 9.6px로 본문 글자 크기와 비슷해진다).
+   길이 자체도 줄였다 — `[사업자등록번호]`가 아니라 서버가 사본에 찍는 것과 같은
+   `[사업자]`를 쓴다(DocumentPreview.jsx의 BOX_LABELS). overflow: hidden은 그래도
+   안 맞는 예외 유형을 위한 안전장치다. */
 .image-hit__label {
   position: absolute;
   inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: visible;
+  overflow: hidden;
   white-space: nowrap;
   pointer-events: none;
   font-weight: 700;
   line-height: 1;
   color: #1a5a86;
-  font-size: clamp(7px, 1.3cqw, 10px);
+  font-size: min(1.35cqw, 11px);
 }
 
 /* injection/hidden_text 전용 — 원본 글자가 원래 아주 작게(0.8pt 등) 숨겨져 있던 자리라
    쪽 폭 기준 크기로도 작게 나올 수 있다(DocumentPreview.jsx의 isHiddenCommand 참고).
    쪽 크기와 무관한 고정 px로 항상 읽히게 한다. */
 .image-hit__label--emphasis {
-  font-size: 13px;
   color: #ffffff;
   background: #1a5a86;
   padding: 1px 4px;

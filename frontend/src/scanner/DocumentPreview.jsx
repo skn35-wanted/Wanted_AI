@@ -28,6 +28,35 @@ const NO_FINDINGS = []
 // 안 되므로 이 둘만 고정 크기로 강조한다. groupOf가 이미 이 둘을 'hidden' 그룹으로 묶어
 // 두고 있어(findings.js) 그 판정을 그대로 가져다 쓴다 — 목록을 여기서 따로 들면 나중에
 // 한쪽만 바뀌었을 때 조용히 어긋난다.
+// PDF·이미지 위에 얹는 라벨은 탐지된 칸 **안에** 들어가야 한다. 서버가 마스킹 사본에
+// 찍는 짧은 이름과 같은 것을 쓴다(backend/scanner/masking/mask.py의 _PDF_PLACEHOLDERS).
+// `[사업자등록번호]`는 열 칸 폭이라 어떤 크기로도 좁은 칸에 못 들어간다 — 같은 뜻을
+// 절반 길이로 적으면 같은 칸에서 글자를 두 배로 키울 수 있다. 미리보기와 내려받은
+// 사본의 라벨이 서로 달라 보이지 않는 효과도 같이 있다.
+const BOX_LABELS = {
+  person: '이름',
+  org: '회사',
+  address: '주소',
+  phone: '전화',
+  email: '이메일',
+  account: '계좌',
+  biz_reg: '사업자',
+  card: '카드',
+  emp_no: '사번',
+  injection: '숨은명령',
+}
+
+function boxLabelText(finding) {
+  return `[${BOX_LABELS[finding.type] ?? finding.label}]`
+}
+
+// 라벨을 칸 크기에 맞춰 줄이는 데 쓰는 값. 글자 수를 CSS에 넘겨서 칸 폭을 글자 수로
+// 나눈 크기를 쓰게 한다(scanner.css의 .image-hit__label) — 자바스크립트로 폭을 재지
+// 않아도 되고, 칸이 작아지면 라벨도 같이 작아져 넘치지 않는다.
+function boxLabelStyle(boxStyle, label) {
+  return { ...boxStyle, '--label-chars': label.length }
+}
+
 function isHiddenCommand(finding) {
   return groupOf(finding.type) === 'hidden'
 }
@@ -573,14 +602,14 @@ function PdfPreview({ title, file, findings, filteredOut = [], selectedId, maske
                         <span
                           key={finding.id}
                           className="image-hit image-hit--redacted"
-                          style={boxStyle}
+                          style={boxLabelStyle(boxStyle, boxLabelText(finding))}
                           aria-label={`${finding.label} 가려짐`}
                         >
                           <span
                             className={`image-hit__label${isHiddenCommand(finding) ? ' image-hit__label--emphasis' : ''}`}
                             aria-hidden="true"
                           >
-                            {`[${finding.label}]`}
+                            {boxLabelText(finding)}
                           </span>
                         </span>
                       ) : (
@@ -971,14 +1000,14 @@ function ImagePreview({ title, file, findings, filteredOut = [], selectedId, mas
               <span
                 key={finding.id}
                 className="image-hit image-hit--redacted"
-                style={boxStyle}
+                style={boxLabelStyle(boxStyle, boxLabelText(finding))}
                 aria-label={`${finding.label} 가려짐`}
               >
                 <span
                   className={`image-hit__label${isHiddenCommand(finding) ? ' image-hit__label--emphasis' : ''}`}
                   aria-hidden="true"
                 >
-                  {`[${finding.label}]`}
+                  {boxLabelText(finding)}
                 </span>
               </span>
             ) : (
