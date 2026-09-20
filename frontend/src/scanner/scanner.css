@@ -322,6 +322,9 @@
   border-collapse: collapse;
   font-size: var(--font-size-sm);
   white-space: nowrap;
+  /* 바깥 패널이 가운데 정렬이라 th만 left로 잡혀 있고 td는 가운데로 상속받았다 —
+     같은 열인데 머리글은 칸 왼쪽, 값은 칸 한가운데에 찍혀 어긋나 보였다. */
+  text-align: left;
 }
 
 .text-scan__group-table th {
