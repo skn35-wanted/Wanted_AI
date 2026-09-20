@@ -42,6 +42,8 @@ _SAFE_FIELDS = (
     "training_level",
     "turn_no",
     "training_status",
+    "db_connection_id",
+    "idle_seconds",
 )
 
 

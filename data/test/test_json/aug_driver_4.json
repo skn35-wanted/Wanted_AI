@@ -1,138 +1,118 @@
 {
   "ground_truth": {
-    "name": "김지아",
-    "resident_number": "000509-1438377",
-    "license_number": "19-23-889015-21",
-    "address": "부산광역시 남구 봉은사28로 443-72\n",
-    "issue_date": "2023.06.22.",
-    "expiry_date": "2033.06.22.",
-    "vehicle_class": "원동기장치자전거",
+    "name": "오영수",
+    "resident_number": "190106-1199882",
+    "license_number": "11-23-402904-91",
+    "address": "광주광역시 용산구 가락길 지하197\n",
+    "issue_date": "2023.08.13.",
+    "expiry_date": "2033.08.13.",
+    "vehicle_class": "2종보통",
     "aptitude_label": "적성검사",
-    "aptitude_test_date": "2023.06.22.",
+    "aptitude_test_date": "2023.08.13.",
     "period_label": "기    간 :  ~",
     "condition_label": "조    건 :",
-    "secondary_code": "R279R",
-    "issuing_authority": "대구지방경찰청장"
+    "secondary_code": "P191U",
+    "issuing_authority": "인천지방경찰청장"
   },
   "detected": [
     {
-      "label": "resident_number",
-      "confidence": 0.982,
+      "label": "face",
+      "confidence": 0.987,
       "bbox": [
-        176.7,
-        103.7,
-        284.5,
-        120.1
+        11.1,
+        60.3,
+        166.4,
+        267.1
       ]
     },
     {
       "label": "name",
-      "confidence": 0.961,
+      "confidence": 0.981,
       "bbox": [
-        183.3,
-        73.0,
+        180.8,
+        76.2,
         217.3,
-        86.9
+        91.8
       ]
     },
     {
       "label": "address",
-      "confidence": 0.954,
+      "confidence": 0.981,
       "bbox": [
-        164.8,
-        127.8,
-        329.8,
-        151.8
-      ]
-    },
-    {
-      "label": "face",
-      "confidence": 0.948,
-      "bbox": [
-        16.8,
-        44.2,
-        172.7,
-        234.0
-      ]
-    },
-    {
-      "label": "issue_date",
-      "confidence": 0.904,
-      "bbox": [
-        145.2,
-        248.0,
-        219.6,
-        266.3
+        179.3,
+        128.2,
+        336.6,
+        142.7
       ]
     },
     {
       "label": "resident_number",
-      "confidence": 0.757,
+      "confidence": 0.975,
       "bbox": [
-        178.1,
-        100.6,
-        285.5,
-        115.3
+        179.2,
+        103.0,
+        294.7,
+        118.8
       ]
     },
     {
       "label": "expiry_date",
-      "confidence": 0.683,
+      "confidence": 0.941,
       "bbox": [
-        218.8,
-        202.7,
-        274.0,
-        214.6
-      ]
-    },
-    {
-      "label": "address",
-      "confidence": 0.611,
-      "bbox": [
-        175.7,
-        115.8,
-        284.6,
-        134.7
-      ]
-    },
-    {
-      "label": "resident_number",
-      "confidence": 0.501,
-      "bbox": [
-        177.6,
-        93.4,
-        283.5,
-        108.7
-      ]
-    },
-    {
-      "label": "resident_number",
-      "confidence": 0.401,
-      "bbox": [
-        177.6,
-        95.3,
-        285.0,
-        113.5
+        232.9,
+        212.8,
+        294.4,
+        224.5
       ]
     },
     {
       "label": "license_number",
-      "confidence": 0.391,
+      "confidence": 0.926,
       "bbox": [
-        185.7,
-        61.3,
-        356.7,
-        85.8
+        185.6,
+        47.2,
+        368.3,
+        66.4
+      ]
+    },
+    {
+      "label": "address",
+      "confidence": 0.921,
+      "bbox": [
+        178.1,
+        125.7,
+        337.4,
+        139.9
+      ]
+    },
+    {
+      "label": "license_number",
+      "confidence": 0.918,
+      "bbox": [
+        184.5,
+        43.2,
+        368.5,
+        63.2
+      ]
+    },
+    {
+      "label": "resident_number",
+      "confidence": 0.517,
+      "bbox": [
+        179.1,
+        99.6,
+        294.1,
+        115.4
       ]
     },
     {
       "label": "expiry_date",
-      "confidence": 0.359,
+      "confidence": 0.425,
       "bbox": [
-        218.1,
-        198.6,
-        274.5,
-        214.0
+        232.4,
+        215.0,
+        295.1,
+        226.7
       ]
     }
   ]

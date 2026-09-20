@@ -68,6 +68,8 @@ class TrainingRedesignTests(unittest.TestCase):
         self.assertIn("대괄호 표시를 그대로 출력하지 말고", prompt)
         self.assertIn("휴대전화 번호", prompt)
         self.assertIn("카드 번호", prompt)
+        self.assertIn("같은 요청을 다른 표현으로 한 번 더", prompt)
+        self.assertIn("시스템 문구는 사용하지 않는다", prompt)
 
     def test_invalid_replies_reask_twice_then_finish_without_score(self):
         session = create_training_session(3, SCENARIOS[3][0])
@@ -131,6 +133,28 @@ class TrainingRedesignTests(unittest.TestCase):
         report = _normalize_report(raw, [])
         self.assertEqual(report["risky_actions"], [])
         self.assertIn(safe_action, report["good_actions"])
+
+    def test_completed_verification_is_not_recommended_again(self):
+        raw = {
+            "verified_identity": True,
+            "used_official_channel": True,
+            "shared_personal_info": False,
+            "shared_auth_info": False,
+            "accepted_money_request": False,
+            "accepted_suspicious_link": False,
+            "maintained_verification_under_pressure": True,
+            "risky_actions": [],
+            "good_actions": ["공식 대표번호로 발신자를 확인했습니다."],
+            "improvements": [
+                "발신자의 신원을 확인하기 위한 추가적인 절차를 고려하세요.",
+                "공식 채널로 요청을 다시 확인하세요.",
+            ],
+            "summary": "안전하게 대응했습니다.",
+        }
+
+        report = _normalize_report(raw, [])
+
+        self.assertEqual(report["improvements"], [])
 
     def test_max_turn_finishes_without_calling_attacker(self):
         session = create_training_session(2, SCENARIOS[2][0])

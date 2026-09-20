@@ -1,60 +1,130 @@
 {
   "ground_truth": {
-    "name": "최상현(現高池)",
-    "resident_number": "350809-1662419",
-    "address": "제주특별자치도 보령시 테헤란길 32-12",
-    "issue_date": "2021.04.03.",
-    "issuing_authority": "부산광역시 청주시장"
+    "name": "박영희(文賢京)",
+    "resident_number": "100506-1444454",
+    "address": "세종특별자치시 관악구 삼성127거리 183",
+    "issue_date": "2022.08.27.",
+    "issuing_authority": "울산광역시 군산시장"
   },
   "detected": [
     {
-      "label": "name",
-      "confidence": 0.984,
+      "label": "issue_date",
+      "confidence": 0.98,
       "bbox": [
-        212.1,
-        239.6,
-        683.0,
-        311.6
+        579.5,
+        776.3,
+        892.0,
+        835.8
       ]
     },
     {
       "label": "resident_number",
-      "confidence": 0.979,
+      "confidence": 0.954,
       "bbox": [
-        147.8,
-        380.4,
-        815.7,
-        452.5
-      ]
-    },
-    {
-      "label": "issue_date",
-      "confidence": 0.97,
-      "bbox": [
-        661.0,
-        777.5,
-        991.8,
-        832.4
-      ]
-    },
-    {
-      "label": "face",
-      "confidence": 0.965,
-      "bbox": [
-        1041.7,
-        62.1,
-        1515.8,
-        618.0
+        181.1,
+        368.5,
+        797.2,
+        450.5
       ]
     },
     {
       "label": "address",
-      "confidence": 0.962,
+      "confidence": 0.951,
       "bbox": [
-        130.8,
-        513.4,
-        968.8,
-        562.3
+        138.2,
+        448.0,
+        940.7,
+        534.2
+      ]
+    },
+    {
+      "label": "name",
+      "confidence": 0.945,
+      "bbox": [
+        255.6,
+        225.4,
+        692.8,
+        309.8
+      ]
+    },
+    {
+      "label": "face",
+      "confidence": 0.94,
+      "bbox": [
+        1008.1,
+        184.6,
+        1526.1,
+        723.1
+      ]
+    },
+    {
+      "label": "resident_number",
+      "confidence": 0.89,
+      "bbox": [
+        180.8,
+        353.8,
+        785.7,
+        433.2
+      ]
+    },
+    {
+      "label": "issue_date",
+      "confidence": 0.758,
+      "bbox": [
+        580.6,
+        765.5,
+        889.7,
+        824.4
+      ]
+    },
+    {
+      "label": "name",
+      "confidence": 0.745,
+      "bbox": [
+        254.0,
+        245.1,
+        692.4,
+        321.1
+      ]
+    },
+    {
+      "label": "address",
+      "confidence": 0.681,
+      "bbox": [
+        139.3,
+        470.7,
+        948.0,
+        543.2
+      ]
+    },
+    {
+      "label": "address",
+      "confidence": 0.472,
+      "bbox": [
+        140.9,
+        484.4,
+        940.7,
+        558.9
+      ]
+    },
+    {
+      "label": "address",
+      "confidence": 0.455,
+      "bbox": [
+        145.3,
+        503.2,
+        934.4,
+        599.4
+      ]
+    },
+    {
+      "label": "resident_number",
+      "confidence": 0.432,
+      "bbox": [
+        163.1,
+        384.8,
+        797.7,
+        462.6
       ]
     }
   ]

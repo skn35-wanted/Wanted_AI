@@ -2,115 +2,145 @@
   "ground_truth": {
     "type": "PM",
     "nationality": "REPUBLIC OF KOREA",
-    "passport_number": "M96718914",
-    "surname": "BAEK",
-    "given_names": "YEEUN",
-    "korean_name": "백예은",
-    "date_of_birth": "04 5월/MAY 1991",
+    "passport_number": "M03854887",
+    "surname": "LEE",
+    "given_names": "YEJUN",
+    "korean_name": "이예준",
+    "date_of_birth": "01 1월/JAN 1982",
     "sex": "F",
-    "issue_date": "15 8월/AUG 2023",
-    "expiry_date": "15 8월/AUG 2033",
-    "mrz": "PMKORBAEK<<YEEUN<<<<<<<<<<<<<<<<<<<<<<<<<<<<\nM967189149KOR9105041F3308157<<<<<<<<<<<<<<43"
+    "issue_date": "15 8월/AUG 2021",
+    "expiry_date": "15 8월/AUG 2031",
+    "mrz": "PMKORLEE<<YEJUN<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\nM038548879KOR8201013F3108155<<<<<<<<<<<<<<78"
   },
   "detected": [
     {
-      "label": "date_of_birth",
-      "confidence": 0.984,
+      "label": "passport_number",
+      "confidence": 0.976,
       "bbox": [
-        361.1,
-        336.1,
-        578.2,
-        364.7
+        641.7,
+        151.6,
+        791.0,
+        177.0
       ]
     },
     {
-      "label": "expiry_date",
-      "confidence": 0.984,
+      "label": "name",
+      "confidence": 0.962,
       "bbox": [
-        644.5,
-        449.9,
-        857.3,
-        477.7
+        365.2,
+        139.5,
+        412.6,
+        164.2
+      ]
+    },
+    {
+      "label": "name",
+      "confidence": 0.958,
+      "bbox": [
+        348.3,
+        240.5,
+        421.1,
+        268.6
+      ]
+    },
+    {
+      "label": "date_of_birth",
+      "confidence": 0.954,
+      "bbox": [
+        337.8,
+        304.4,
+        527.8,
+        335.6
       ]
     },
     {
       "label": "face",
-      "confidence": 0.984,
+      "confidence": 0.952,
       "bbox": [
-        39.1,
-        125.1,
-        320.7,
-        489.3
-      ]
-    },
-    {
-      "label": "name",
-      "confidence": 0.978,
-      "bbox": [
-        365.4,
-        166.0,
-        444.1,
-        195.0
-      ]
-    },
-    {
-      "label": "name",
-      "confidence": 0.973,
-      "bbox": [
-        362.9,
-        281.9,
-        441.9,
-        310.7
-      ]
-    },
-    {
-      "label": "name",
-      "confidence": 0.972,
-      "bbox": [
-        364.1,
-        224.3,
-        464.0,
-        253.6
+        47.6,
+        71.7,
+        322.0,
+        392.9
       ]
     },
     {
       "label": "passport_number",
-      "confidence": 0.971,
+      "confidence": 0.944,
       "bbox": [
-        662.1,
-        92.8,
-        827.8,
-        119.9
-      ]
-    },
-    {
-      "label": "issue_date",
-      "confidence": 0.969,
-      "bbox": [
-        358.4,
-        461.8,
-        571.2,
-        489.0
+        640.4,
+        141.2,
+        791.8,
+        172.3
       ]
     },
     {
       "label": "mrz",
-      "confidence": 0.946,
+      "confidence": 0.943,
       "bbox": [
-        34.0,
-        543.0,
-        923.7,
-        598.9
+        1.8,
+        500.1,
+        843.8,
+        597.4
+      ]
+    },
+    {
+      "label": "name",
+      "confidence": 0.941,
+      "bbox": [
+        356.9,
+        191.1,
+        443.0,
+        218.7
+      ]
+    },
+    {
+      "label": "issue_date",
+      "confidence": 0.897,
+      "bbox": [
+        327.9,
+        419.0,
+        518.6,
+        450.1
+      ]
+    },
+    {
+      "label": "expiry_date",
+      "confidence": 0.895,
+      "bbox": [
+        586.6,
+        466.1,
+        783.7,
+        498.1
+      ]
+    },
+    {
+      "label": "date_of_birth",
+      "confidence": 0.876,
+      "bbox": [
+        339.9,
+        296.4,
+        528.2,
+        330.6
+      ]
+    },
+    {
+      "label": "expiry_date",
+      "confidence": 0.795,
+      "bbox": [
+        587.2,
+        456.1,
+        782.8,
+        492.7
       ]
     },
     {
       "label": "sex",
-      "confidence": 0.941,
+      "confidence": 0.78,
       "bbox": [
-        650.8,
-        327.9,
-        666.0,
-        353.9
+        605.0,
+        334.1,
+        618.7,
+        355.7
       ]
     }
   ]

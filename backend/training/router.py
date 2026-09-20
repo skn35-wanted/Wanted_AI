@@ -265,6 +265,7 @@ def reply_training_api(
             "training.reply.processed",
             turn_no=result["turn_no"],
             training_status="finished" if result["is_finished"] else "in_progress",
+            is_evaluable=result["is_evaluable"],
             shared_field_types=result["shared_fields"],
         )
         return {

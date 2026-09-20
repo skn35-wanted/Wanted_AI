@@ -2,155 +2,135 @@
   "ground_truth": {
     "type": "PM",
     "nationality": "REPUBLIC OF KOREA",
-    "passport_number": "M50727629",
-    "surname": "KIM",
-    "given_names": "EUNSEO",
-    "korean_name": "김은서",
-    "date_of_birth": "19 4월/APR 1982",
-    "sex": "F",
-    "issue_date": "15 8월/AUG 2025",
-    "expiry_date": "15 8월/AUG 2035",
-    "mrz": "PMKORKIM<<EUNSEO<<<<<<<<<<<<<<<<<<<<<<<<<<<<\nM507276294KOR8204194F3508153<<<<<<<<<<<<<<04"
+    "passport_number": "M02253999",
+    "surname": "CHA",
+    "given_names": "JIWOO",
+    "korean_name": "차지우",
+    "date_of_birth": "15 2월/FEB 1984",
+    "sex": "M",
+    "issue_date": "15 8월/AUG 2024",
+    "expiry_date": "15 8월/AUG 2034",
+    "mrz": "PMKORCHA<<JIWOO<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\nM022539997KOR8402159M3408153<<<<<<<<<<<<<<84"
   },
   "detected": [
     {
-      "label": "expiry_date",
-      "confidence": 0.983,
-      "bbox": [
-        660.9,
-        431.9,
-        896.3,
-        461.4
-      ]
-    },
-    {
       "label": "face",
-      "confidence": 0.978,
+      "confidence": 0.987,
       "bbox": [
-        1.0,
-        176.1,
-        287.7,
-        520.9
-      ]
-    },
-    {
-      "label": "name",
-      "confidence": 0.973,
-      "bbox": [
-        332.8,
-        247.7,
-        462.2,
-        277.5
-      ]
-    },
-    {
-      "label": "name",
-      "confidence": 0.971,
-      "bbox": [
-        328.4,
-        199.2,
-        390.7,
-        227.7
-      ]
-    },
-    {
-      "label": "issue_date",
-      "confidence": 0.968,
-      "bbox": [
-        352.7,
-        469.8,
-        584.5,
-        498.5
-      ]
-    },
-    {
-      "label": "sex",
-      "confidence": 0.956,
-      "bbox": [
-        656.1,
-        325.4,
-        671.7,
-        350.3
-      ]
-    },
-    {
-      "label": "date_of_birth",
-      "confidence": 0.953,
-      "bbox": [
-        341.1,
-        350.6,
-        566.5,
-        380.6
+        3.9,
+        150.8,
+        316.9,
+        491.9
       ]
     },
     {
       "label": "passport_number",
-      "confidence": 0.948,
+      "confidence": 0.986,
       "bbox": [
-        644.4,
-        89.5,
-        825.9,
-        118.1
-      ]
-    },
-    {
-      "label": "mrz",
-      "confidence": 0.946,
-      "bbox": [
-        7.0,
-        533.8,
-        991.5,
-        600.0
-      ]
-    },
-    {
-      "label": "name",
-      "confidence": 0.943,
-      "bbox": [
-        338.5,
-        305.5,
-        424.3,
-        334.8
-      ]
-    },
-    {
-      "label": "expiry_date",
-      "confidence": 0.923,
-      "bbox": [
-        662.2,
-        423.7,
-        895.9,
-        457.4
+        659.3,
+        88.2,
+        840.6,
+        114.9
       ]
     },
     {
       "label": "date_of_birth",
-      "confidence": 0.891,
+      "confidence": 0.981,
       "bbox": [
-        343.0,
-        357.8,
-        566.5,
-        386.2
+        362.5,
+        327.3,
+        591.3,
+        356.3
       ]
     },
     {
       "label": "mrz",
-      "confidence": 0.759,
+      "confidence": 0.975,
       "bbox": [
-        0.0,
-        554.7,
-        984.1,
+        22.3,
+        526.9,
+        1024.0,
         600.0
       ]
     },
     {
       "label": "name",
-      "confidence": 0.654,
+      "confidence": 0.972,
       "bbox": [
-        333.6,
-        253.7,
-        459.2,
-        281.6
+        356.4,
+        282.4,
+        445.4,
+        309.5
+      ]
+    },
+    {
+      "label": "name",
+      "confidence": 0.972,
+      "bbox": [
+        348.2,
+        227.7,
+        457.9,
+        255.5
+      ]
+    },
+    {
+      "label": "issue_date",
+      "confidence": 0.963,
+      "bbox": [
+        378.7,
+        445.1,
+        621.0,
+        473.0
+      ]
+    },
+    {
+      "label": "name",
+      "confidence": 0.962,
+      "bbox": [
+        338.1,
+        175.3,
+        414.4,
+        203.1
+      ]
+    },
+    {
+      "label": "expiry_date",
+      "confidence": 0.949,
+      "bbox": [
+        701.6,
+        417.5,
+        936.0,
+        445.9
+      ]
+    },
+    {
+      "label": "sex",
+      "confidence": 0.933,
+      "bbox": [
+        688.3,
+        307.1,
+        717.7,
+        331.2
+      ]
+    },
+    {
+      "label": "expiry_date",
+      "confidence": 0.889,
+      "bbox": [
+        699.7,
+        407.7,
+        938.2,
+        438.8
+      ]
+    },
+    {
+      "label": "date_of_birth",
+      "confidence": 0.874,
+      "bbox": [
+        362.0,
+        333.0,
+        590.5,
+        360.7
       ]
     }
   ]

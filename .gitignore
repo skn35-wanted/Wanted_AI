@@ -99,6 +99,9 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 .pnpm-store/
+# npm을 쓴다(frontend/package-lock.json) — pnpm 락파일이 실수로 같이 커밋되는 걸 막는다.
+pnpm-lock.yaml
+pnpm-workspace.yaml
 
 # ---------- 4. 로그 & 임시파일 ----------
 *.log

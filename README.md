@@ -109,7 +109,9 @@ Invoke-RestMethod `
 | Method | Endpoint | 설명 |
 |---|---|---|
 | `GET` | `/health` | 서버·스키마 상태 확인 |
-| `POST` | `/scan` | 여러 파일 스캔 및 위험도 정렬 |
+| `POST` | `/scan` | 여러 파일 스캔 및 위험도 정렬(동기 — 응답까지 기다린다) |
+| `POST` | `/scan/async` | 여러 파일 스캔 접수. 즉시 `job_id`를 돌려주고 실제 검사는 백그라운드에서 돈다(대용량 로그·CSV처럼 오래 걸릴 수 있는 요청용, 웹 화면이 쓰는 경로) |
+| `GET` | `/scan/async/{job_id}` | 위 접수 건의 진행 상태 조회. 끝났으면 `/scan`과 같은 모양의 결과를 함께 돌려준다 |
 | `POST` | `/scan/text` | 훈련 답장 등 문장 하나 검사 |
 | `GET` | `/download/{file_id}` | 마스킹 사본 하나 다운로드 |
 | `GET` | `/download/all?batch_id=...` | 배치 마스킹 사본 ZIP 다운로드 |
@@ -167,6 +169,6 @@ docx-ray/
 | PDF·DOCX·XLSX·이미지 마스킹 | ✅ 구현 |
 | CNN·오탐 제거·인젝션 모델 산출물 | ✅ 생성 |
 | privacy-first DB 스키마·변환·보존 정책 | ✅ 구현 |
-| 훈련 상태 머신·Attacker/Defender·답장 검사 | 🟡 통합 중 |
+| 훈련 상태 머신·Attacker/Defender·답장 검사 | ✅ 구현 |
 | 오탐·인젝션 모델의 스캐너 연결 | ✅ 구현 |
-| 웹 UI·배포 | 🟡 구현 중 |
+| 웹 UI·배포 | ✅ 배포 완료 |

@@ -1,88 +1,88 @@
 {
   "ground_truth": {
-    "name": "백중수",
-    "resident_number": "790523-1391613",
-    "license_number": "16-21-283037-71",
-    "address": "충청남도 춘천시 도산대722로 지하969\n(하윤김읍)",
-    "issue_date": "2021.04.05.",
-    "expiry_date": "2031.04.05.",
-    "vehicle_class": "2종보통",
+    "name": "주정수",
+    "resident_number": "010119-2043038",
+    "license_number": "11-17-233553-91",
+    "address": "울산광역시 북구 석촌호수가 808\n(예은김박리)",
+    "issue_date": "2017.12.05.",
+    "expiry_date": "2027.12.05.",
+    "vehicle_class": "1종대형",
     "aptitude_label": "적성검사",
-    "aptitude_test_date": "2021.04.05.",
+    "aptitude_test_date": "2017.12.05.",
     "period_label": "기    간 :  ~",
     "condition_label": "조    건 :",
-    "secondary_code": "X109R",
-    "issuing_authority": "대구지방경찰청장"
+    "secondary_code": "R978K",
+    "issuing_authority": "경기북부지방경찰청장"
   },
   "detected": [
     {
-      "label": "license_number",
-      "confidence": 0.907,
+      "label": "issue_date",
+      "confidence": 0.992,
       "bbox": [
-        145.9,
-        32.7,
-        334.4,
-        64.1
+        172.0,
+        267.0,
+        251.2,
+        279.0
       ]
     },
     {
-      "label": "license_number",
-      "confidence": 0.896,
+      "label": "expiry_date",
+      "confidence": 0.992,
       "bbox": [
-        139.6,
-        28.3,
-        335.2,
-        56.9
+        233.7,
+        197.1,
+        295.8,
+        208.5
       ]
     },
     {
       "label": "face",
-      "confidence": 0.891,
+      "confidence": 0.99,
       "bbox": [
-        1.8,
-        101.2,
-        151.5,
-        274.8
+        7.0,
+        73.4,
+        157.9,
+        269.6
+      ]
+    },
+    {
+      "label": "license_number",
+      "confidence": 0.989,
+      "bbox": [
+        166.8,
+        37.2,
+        346.7,
+        55.0
+      ]
+    },
+    {
+      "label": "resident_number",
+      "confidence": 0.975,
+      "bbox": [
+        169.6,
+        95.1,
+        283.4,
+        109.6
       ]
     },
     {
       "label": "address",
-      "confidence": 0.481,
+      "confidence": 0.97,
       "bbox": [
-        152.6,
-        107.1,
-        278.1,
-        129.7
-      ]
-    },
-    {
-      "label": "address",
-      "confidence": 0.352,
-      "bbox": [
-        155.0,
-        116.4,
-        335.8,
-        166.1
+        170.3,
+        115.4,
+        316.8,
+        145.2
       ]
     },
     {
       "label": "name",
-      "confidence": 0.332,
+      "confidence": 0.97,
       "bbox": [
-        148.4,
-        90.2,
-        182.0,
-        105.9
-      ]
-    },
-    {
-      "label": "address",
-      "confidence": 0.329,
-      "bbox": [
-        152.6,
-        108.6,
-        339.7,
-        138.7
+        169.9,
+        76.8,
+        205.2,
+        91.0
       ]
     }
   ]

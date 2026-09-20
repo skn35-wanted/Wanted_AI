@@ -101,7 +101,7 @@ export default function ReportPage({ training, navigate }) {
               </p>
             </div>
             <div className="report-grade">
-              <span>Level {report.level}</span>
+              <span>Case {report.level}</span>
               <strong>{report.grade}</strong>
               <small>대응 등급</small>
             </div>

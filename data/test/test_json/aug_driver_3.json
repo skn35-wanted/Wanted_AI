@@ -1,148 +1,118 @@
 {
   "ground_truth": {
-    "name": "김은주",
-    "resident_number": "680718-1197770",
-    "license_number": "13-23-164163-91",
-    "address": "광주광역시 성동구 언주가 177\n",
-    "issue_date": "2023.10.27.",
-    "expiry_date": "2033.10.27.",
-    "vehicle_class": "2종소형",
+    "name": "박성훈",
+    "resident_number": "950501-1851637",
+    "license_number": "16-24-321479-51",
+    "address": "전북특별자치도 천안시 서북구 학동거리 134-11\n",
+    "issue_date": "2024.06.02.",
+    "expiry_date": "2034.06.02.",
+    "vehicle_class": "원동기장치자전거",
     "aptitude_label": "적성검사",
-    "aptitude_test_date": "2023.10.27.",
+    "aptitude_test_date": "2024.06.02.",
     "period_label": "기    간 :  ~",
     "condition_label": "조    건 :",
-    "secondary_code": "G125K",
-    "issuing_authority": "대구지방경찰청장"
+    "secondary_code": "B270V",
+    "issuing_authority": "경기북부지방경찰청장"
   },
   "detected": [
     {
-      "label": "resident_number",
-      "confidence": 0.976,
+      "label": "face",
+      "confidence": 0.994,
       "bbox": [
-        177.0,
-        103.1,
-        284.6,
-        121.1
+        4.4,
+        67.4,
+        160.5,
+        264.0
+      ]
+    },
+    {
+      "label": "resident_number",
+      "confidence": 0.984,
+      "bbox": [
+        172.4,
+        103.6,
+        292.6,
+        118.5
       ]
     },
     {
       "label": "name",
-      "confidence": 0.973,
+      "confidence": 0.971,
       "bbox": [
-        183.0,
-        72.7,
-        217.0,
-        87.2
-      ]
-    },
-    {
-      "label": "issue_date",
-      "confidence": 0.964,
-      "bbox": [
-        145.0,
-        247.7,
-        220.9,
-        266.8
-      ]
-    },
-    {
-      "label": "face",
-      "confidence": 0.946,
-      "bbox": [
-        10.5,
-        44.3,
-        173.0,
-        234.9
-      ]
-    },
-    {
-      "label": "address",
-      "confidence": 0.91,
-      "bbox": [
-        172.6,
-        125.5,
-        303.1,
-        142.3
-      ]
-    },
-    {
-      "label": "resident_number",
-      "confidence": 0.734,
-      "bbox": [
-        178.3,
-        99.8,
-        284.7,
-        115.1
+        171.3,
+        80.9,
+        209.4,
+        95.0
       ]
     },
     {
       "label": "expiry_date",
-      "confidence": 0.727,
+      "confidence": 0.969,
       "bbox": [
-        218.6,
-        202.1,
-        275.0,
-        214.2
+        242.9,
+        211.4,
+        307.7,
+        223.0
+      ]
+    },
+    {
+      "label": "license_number",
+      "confidence": 0.961,
+      "bbox": [
+        171.0,
+        47.7,
+        361.5,
+        65.6
       ]
     },
     {
       "label": "address",
-      "confidence": 0.724,
+      "confidence": 0.96,
       "bbox": [
-        167.1,
+        174.2,
         129.9,
-        303.1,
-        144.1
+        411.7,
+        141.9
       ]
     },
     {
       "label": "address",
-      "confidence": 0.567,
+      "confidence": 0.955,
       "bbox": [
-        175.2,
-        117.4,
-        287.4,
-        135.6
-      ]
-    },
-    {
-      "label": "resident_number",
-      "confidence": 0.532,
-      "bbox": [
-        177.5,
-        93.5,
-        281.5,
-        109.4
-      ]
-    },
-    {
-      "label": "resident_number",
-      "confidence": 0.485,
-      "bbox": [
-        177.6,
-        95.1,
-        283.9,
-        113.7
+        173.2,
+        127.5,
+        399.7,
+        139.2
       ]
     },
     {
       "label": "license_number",
-      "confidence": 0.449,
+      "confidence": 0.755,
       "bbox": [
-        186.8,
-        58.2,
-        356.2,
-        83.0
+        174.3,
+        51.2,
+        359.7,
+        69.0
       ]
     },
     {
-      "label": "license_number",
-      "confidence": 0.428,
+      "label": "resident_number",
+      "confidence": 0.721,
       "bbox": [
-        189.2,
-        52.8,
-        349.2,
-        72.9
+        172.0,
+        101.5,
+        289.3,
+        115.6
+      ]
+    },
+    {
+      "label": "address",
+      "confidence": 0.71,
+      "bbox": [
+        172.8,
+        125.5,
+        386.2,
+        137.0
       ]
     }
   ]

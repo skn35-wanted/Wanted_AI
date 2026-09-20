@@ -1140,6 +1140,24 @@
   color: #1a5a86;
 }
 
+/* 숨은 명령(injection/hidden_text) 자리표시자 전용. 원본 런이 0pt 근처의 font-size로
+   숨겨져 있던 자리라, DocumentPreview.jsx의 maskDocxFindings가 [유형] 자리표시자를
+   끼워 넣어도 그 작은 font-size를 그대로 물려받아 안 보일 만큼 작게 나왔다(실측
+   2026-09-21, 숨은명령.docx). 원문 보기의 .hit--hidden이 이미 겪은 문제와 같아서
+   (위 .hit--hidden 규칙 참고) 같은 해법을 쓴다: !important로 원본의 숨김용 인라인
+   스타일을 덮어쓰고, block으로 만들어 0 높이짜리 원래 자리에 짓눌리지 않게 한다. */
+.docx-preview-host .mask-token--hidden {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  margin: var(--space-1) 0;
+  overflow-wrap: anywhere;
+  font-size: var(--font-size-md) !important;
+  line-height: 1.5 !important;
+  opacity: 1 !important;
+  letter-spacing: normal !important;
+}
+
 .paper--empty {
   color: var(--color-text-muted);
   font-size: var(--font-size-sm);
@@ -1208,25 +1226,67 @@
   outline-offset: 1px;
 }
 
-/* 마스킹된 문서 보기 전용 — DOCX/XLSX·TXT 등에서 쓰는 .mask-token과 같은 옅은 파란
-   태그 배색으로 자리를 칠하고, 그 위에 "[유형]" 글자를 올린다(2026-09-20 피드백: 검은
-   박스는 다른 형식의 파란 태그와 달라 보였다 — 형식마다 마스킹 색이 다르면 "가려진
-   자리"라는 하나의 뜻을 서로 다르게 표시하는 셈이라 통일한다). 원본 글자 상자보다
-   라벨이 넓을 수 있어(전화번호 상자는 좁은데 "[전화번호]"는 김) overflow를 열어 상자
-   밖으로 자연스럽게 삐져나오게 한다. */
-/* 가려진 자리 표시 — 글자는 넣지 않는다.
-   마스킹 사본 자체에 서버가 칸 너비에 맞춰 [회사]·[전화] 같은 짧은 라벨을 이미 그려
-   넣는다(mask.py의 _PDF_PLACEHOLDERS, _pdf_font_size). 그 위에 화면에서 같은 뜻의
-   라벨을 한 번 더 얹었더니 칸보다 커져서 잘리고 옆 줄까지 덮었다(실측 2026-09-20,
-   아이폰과 PC 모두 `[사업자등록번호]`가 `사업사능목번호`로 잘렸다).
-   그래서 여기서는 "이 자리가 가려졌다"는 옅은 표시만 하고, 무엇으로 가렸는지는
-   사본에 이미 찍혀 있는 라벨이 그대로 읽히게 둔다. */
+/* 마스킹된 문서 보기 전용 — DOCX/XLSX·TXT 등에서 쓰는 .mask-token과 같은 파란 태그
+   배색을 쓴다(2026-09-20 피드백: 검은 박스는 다른 형식의 파란 태그와 달라 보였다 —
+   형식마다 마스킹 색이 다르면 "가려진 자리"라는 하나의 뜻을 서로 다르게 표시하는
+   셈이라 통일한다).
+
+   PDF/이미지는 원본을 캔버스에 그린 그림 위에 이 상자를 얹는 방식이다(DOCX처럼 DOM
+   텍스트를 실제로 지우고 바꿔 끼울 수 없다) — 그래서 이 상자 자체가 불투명해서 원본
+   글자를 완전히 덮어야 한다. 한때 mix-blend-mode: multiply + 12% 배경으로 옅게
+   칠했는데, "사본에 찍힌 라벨이 밑에서 비친다"는 전제가 틀렸다 — 여기서 그리는 것은
+   항상 원본 파일이지 서버가 만든 마스킹 사본이 아니다(마스킹 사본을 새로 받아 오지
+   않고 원본 위에서 화면이 직접 가리는 방식을 쓴다). 그 결과 원본 글자가 옅은 칠 밑에
+   그대로 읽혀 개인정보가 노출됐다(실측 2026-09-21, 위탁계약서.pdf: 주민번호·계좌번호가
+   흐린 하이라이트 아래 그대로 보임). */
 .image-hit--redacted {
   border: 1px solid color-mix(in srgb, #1a5a86 35%, transparent);
   border-radius: 3px;
-  background: color-mix(in srgb, #1a5a86 12%, transparent);
-  /* 사본에 찍힌 라벨이 이 표시 밑에서 그대로 읽혀야 한다. */
-  mix-blend-mode: multiply;
+  background: #e6f0fa;
+  /* .image-hit(원문 보기용 하이라이트) 쪽에 mix-blend-mode: multiply가 있는데, 같은
+     요소가 image-hit와 image-hit--redacted 클래스를 함께 쓰므로 여기서 다시 선언하지
+     않으면 그 값이 그대로 남는다. multiply가 걸린 채면 위 background가 불투명해도
+     밑에 깔린 원본 글자와 곱해져 계속 비쳐 보인다(실측 2026-09-21) — 그래서 여기서
+     명시적으로 되돌린다. */
+  mix-blend-mode: normal;
+}
+
+/* 가려진 자리에 "[유형]" 라벨을 올린다 — DOCX/XLSX의 .mask-token과 같은 뜻을
+   PDF·이미지에서도 통일해서 보여 달라는 요청(2026-09-21)으로 다시 넣는다.
+   전에 한 번 넣었다가 뺐다(2026-09-20, "[사업자등록번호]"가 좁은 칸 안에서 잘려
+   깨진 글자로 보임) — 그때는 라벨을 상자 폭에 맞춰 clip한 게 원인이었다. 이번엔
+   두 가지로 그 문제를 피한다.
+     1) overflow를 막지 않고 nowrap만 준다 — 상자보다 라벨이 넓으면 안 잘리고
+        좌우로 고르게 삐져나온다(글자가 깨지는 대신 옆 칸을 살짝 덮을 수는 있다).
+     2) 글자 크기를 고정 px가 아니라 쪽 그림 폭 기준 컨테이너 쿼리 단위(cqw)로
+        정한다 — .rendered-page__stage·.image-preview__stage에 이미 걸려 있는
+        container-type: inline-size를 쓴다. 화면 크기·줌에 따라 쪽 그림이 커지고
+        작아지는 만큼 라벨도 같이 커지고 작아져서, 큰 화면에서 라벨만 작아 안 보이거나
+        작은 화면에서 라벨이 원래 글자 상자보다 훨씬 커지는 일이 줄어든다. */
+.image-hit__label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  white-space: nowrap;
+  pointer-events: none;
+  font-weight: 700;
+  line-height: 1;
+  color: #1a5a86;
+  font-size: clamp(7px, 1.3cqw, 10px);
+}
+
+/* injection/hidden_text 전용 — 원본 글자가 원래 아주 작게(0.8pt 등) 숨겨져 있던 자리라
+   쪽 폭 기준 크기로도 작게 나올 수 있다(DocumentPreview.jsx의 isHiddenCommand 참고).
+   쪽 크기와 무관한 고정 px로 항상 읽히게 한다. */
+.image-hit__label--emphasis {
+  font-size: 13px;
+  color: #ffffff;
+  background: #1a5a86;
+  padding: 1px 4px;
+  border-radius: 2px;
 }
 
 .image-preview__note {

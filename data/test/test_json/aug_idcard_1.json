@@ -1,60 +1,80 @@
 {
   "ground_truth": {
-    "name": "박승현(泳池柳)",
-    "resident_number": "080816-2063261",
-    "address": "세종특별자치시 광진구 압구정7길 916-52",
-    "issue_date": "2019.04.03.",
-    "issuing_authority": "전북특별자치도 경주시장"
+    "name": "최성호(吳成柳)",
+    "resident_number": "350302-1422710",
+    "address": "대구광역시 동대문구 강남대833거리 801",
+    "issue_date": "2019.10.18.",
+    "issuing_authority": "광주광역시 목포시장"
   },
   "detected": [
     {
-      "label": "issue_date",
-      "confidence": 0.991,
+      "label": "resident_number",
+      "confidence": 0.994,
       "bbox": [
-        630.2,
-        781.8,
-        939.8,
-        831.3
+        135.5,
+        405.5,
+        853.5,
+        490.7
       ]
     },
     {
-      "label": "face",
-      "confidence": 0.989,
+      "label": "issue_date",
+      "confidence": 0.99,
       "bbox": [
-        1002.9,
-        99.6,
-        1492.2,
-        644.8
+        640.0,
+        863.8,
+        983.2,
+        924.2
       ]
     },
     {
       "label": "name",
-      "confidence": 0.987,
-      "bbox": [
-        215.1,
-        279.7,
-        659.4,
-        349.5
-      ]
-    },
-    {
-      "label": "resident_number",
       "confidence": 0.985,
       "bbox": [
-        161.7,
-        414.9,
-        782.8,
-        481.6
+        207.9,
+        241.3,
+        721.4,
+        329.2
       ]
     },
     {
       "label": "address",
-      "confidence": 0.98,
+      "confidence": 0.953,
       "bbox": [
-        145.5,
-        539.8,
-        954.6,
-        634.1
+        105.7,
+        541.0,
+        1013.7,
+        622.1
+      ]
+    },
+    {
+      "label": "face",
+      "confidence": 0.909,
+      "bbox": [
+        1120.5,
+        125.1,
+        1568.5,
+        716.6
+      ]
+    },
+    {
+      "label": "address",
+      "confidence": 0.699,
+      "bbox": [
+        101.4,
+        565.1,
+        1018.3,
+        625.5
+      ]
+    },
+    {
+      "label": "address",
+      "confidence": 0.641,
+      "bbox": [
+        91.9,
+        554.0,
+        1007.6,
+        611.7
       ]
     }
   ]

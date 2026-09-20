@@ -2,125 +2,115 @@
   "ground_truth": {
     "type": "PM",
     "nationality": "REPUBLIC OF KOREA",
-    "passport_number": "M69810645",
-    "surname": "JANG",
-    "given_names": "JIHOON",
-    "korean_name": "장지훈",
-    "date_of_birth": "13 4월/APR 1989",
-    "sex": "M",
-    "issue_date": "15 8월/AUG 2022",
-    "expiry_date": "15 8월/AUG 2032",
-    "mrz": "PMKORJANG<<JIHOON<<<<<<<<<<<<<<<<<<<<<<<<<<<\nM698106457KOR8904135M3208159<<<<<<<<<<<<<<20"
+    "passport_number": "M55569689",
+    "surname": "SONG",
+    "given_names": "YERIN",
+    "korean_name": "송예린",
+    "date_of_birth": "23 12월/DEC 1974",
+    "sex": "F",
+    "issue_date": "15 8월/AUG 2023",
+    "expiry_date": "15 8월/AUG 2033",
+    "mrz": "PMKORSONG<<YERIN<<<<<<<<<<<<<<<<<<<<<<<<<<<<\nM555696894KOR7412236F3308150<<<<<<<<<<<<<<93"
   },
   "detected": [
     {
-      "label": "passport_number",
+      "label": "face",
+      "confidence": 0.989,
+      "bbox": [
+        48.6,
+        107.3,
+        301.3,
+        422.2
+      ]
+    },
+    {
+      "label": "mrz",
       "confidence": 0.988,
       "bbox": [
-        659.5,
-        100.5,
-        851.5,
-        129.1
-      ]
-    },
-    {
-      "label": "name",
-      "confidence": 0.984,
-      "bbox": [
-        325.2,
-        179.1,
-        417.6,
-        209.8
-      ]
-    },
-    {
-      "label": "face",
-      "confidence": 0.982,
-      "bbox": [
-        0.3,
-        141.0,
-        305.7,
-        513.8
-      ]
-    },
-    {
-      "label": "issue_date",
-      "confidence": 0.982,
-      "bbox": [
-        367.0,
-        484.8,
-        612.1,
-        512.6
+        25.4,
+        509.4,
+        869.9,
+        594.9
       ]
     },
     {
       "label": "expiry_date",
-      "confidence": 0.975,
+      "confidence": 0.983,
       "bbox": [
-        693.6,
-        469.1,
-        933.1,
-        497.2
-      ]
-    },
-    {
-      "label": "name",
-      "confidence": 0.974,
-      "bbox": [
-        341.0,
-        300.5,
-        434.2,
-        331.1
+        604.3,
+        440.9,
+        803.7,
+        466.7
       ]
     },
     {
       "label": "date_of_birth",
-      "confidence": 0.966,
+      "confidence": 0.982,
       "bbox": [
-        350.2,
-        356.4,
-        588.3,
-        385.7
+        340.9,
+        311.3,
+        549.7,
+        336.3
+      ]
+    },
+    {
+      "label": "issue_date",
+      "confidence": 0.975,
+      "bbox": [
+        334.9,
+        423.9,
+        536.8,
+        449.7
       ]
     },
     {
       "label": "name",
-      "confidence": 0.963,
+      "confidence": 0.962,
       "bbox": [
-        331.3,
-        239.6,
-        461.9,
-        269.6
+        349.0,
+        155.3,
+        429.2,
+        181.0
+      ]
+    },
+    {
+      "label": "name",
+      "confidence": 0.958,
+      "bbox": [
+        346.5,
+        205.9,
+        425.3,
+        231.9
+      ]
+    },
+    {
+      "label": "name",
+      "confidence": 0.957,
+      "bbox": [
+        343.5,
+        255.9,
+        416.4,
+        282.5
+      ]
+    },
+    {
+      "label": "passport_number",
+      "confidence": 0.956,
+      "bbox": [
+        622.4,
+        121.5,
+        772.7,
+        145.3
       ]
     },
     {
       "label": "sex",
-      "confidence": 0.95,
+      "confidence": 0.917,
       "bbox": [
-        682.8,
-        346.3,
-        712.8,
-        372.6
-      ]
-    },
-    {
-      "label": "mrz",
-      "confidence": 0.835,
-      "bbox": [
-        0.0,
-        524.8,
-        1014.1,
-        600.0
-      ]
-    },
-    {
-      "label": "mrz",
-      "confidence": 0.503,
-      "bbox": [
-        0.0,
-        562.0,
-        1021.9,
-        600.0
+        610.0,
+        321.7,
+        623.3,
+        344.3
       ]
     }
   ]

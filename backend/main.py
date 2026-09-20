@@ -103,12 +103,14 @@ else:
 try:
     from backend.db.session import SessionLocal, init_db
     from backend.db.converters import save_scan_result
+    from backend.db.lock_reaper import kill_stale_transactions
     from backend.db.seed_demo_user import DEMO_USER_ID, ensure_demo_user
     from backend.db.tables import FindingRow
 except Exception as exc:  # noqa: BLE001
     SessionLocal = None
     init_db = None
     save_scan_result = None
+    kill_stale_transactions = None
     ensure_demo_user = None
     FindingRow = None
     DEMO_USER_ID = 1
@@ -162,9 +164,40 @@ def _persist_scan_results(results: list[schema.ScanResult]) -> None:
 MASKED_DIR_PREFIX = "infoguard_mask_"
 
 
+# 워커 하나가 실제 요청 처리 중(DB 트랜잭션을 연 채) 컨테이너가 재시작되면
+# (배포 중 크래시, Railway의 강제 재시작 등) 그 연결은 TiDB 쪽에 커밋도 롤백도
+# 안 된 채 남는다 — TCP가 끊긴 걸 TiDB가 스스로 알아채기 전까지는(서버 쪽
+# wait_timeout이 길다) 그 트랜잭션이 잡은 락이 풀리지 않는다. 실측(2026-09-20):
+# PR #60의 미해결 머지 충돌로 배포가 502 크래시 루프를 도는 동안 이런 트랜잭션이
+# 하나 생겨 15분 넘게 방치됐고, training_progress에 새로 쓰는 모든 요청이
+# "Lock wait timeout exceeded"로 막혔다. 애플리케이션 코드는 정상 종료 경로에서
+# 전부 db.close()를 부르고 있어(get_session()의 finally) 새는 곳이 없다 — 문제는
+# **비정상** 종료라 코드로 막을 수 없고, 대신 주기적으로 방치된 트랜잭션을 찾아
+# 직접 끊는 쪽(backend/db/lock_reaper.py)으로 안전망을 둔다.
+_LOCK_REAPER_INTERVAL_SECONDS = 60
+
+
+def _run_lock_reaper_forever() -> None:
+    if SessionLocal is None or kill_stale_transactions is None:
+        return
+    while True:
+        time.sleep(_LOCK_REAPER_INTERVAL_SECONDS)
+        try:
+            db = SessionLocal()
+            try:
+                killed = kill_stale_transactions(db)
+                if killed:
+                    log_event(logger, logging.WARNING, "db.lock_reaper.swept", removed_count=killed)
+            finally:
+                db.close()
+        except Exception as exc:  # noqa: BLE001 — 백그라운드 스레드라 여기서 잡지 않으면 조용히 사라진다
+            log_event(logger, logging.DEBUG, "db.lock_reaper.sweep_failed", error_code=type(exc).__name__)
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    """서버가 뜰 때 이전 프로세스가 남긴 사본을 한 번 훑어 지운다.
+    """서버가 뜰 때 이전 프로세스가 남긴 사본을 한 번 훑어 지우고, 방치된 DB
+    트랜잭션을 주기적으로 끊는 백그라운드 스레드를 띄운다.
 
     사본 경로는 메모리(_masked_files)에만 있어서 재시작하면 레지스트리는 비는데
     **파일은 디스크에 그대로 남는다.** 그 뒤로는 아무도 존재를 모르니 _sweep_expired의
@@ -176,6 +209,7 @@ async def lifespan(app: FastAPI):
     """
     removed = _sweep_orphan_dirs()
     _init_db_best_effort()
+    threading.Thread(target=_run_lock_reaper_forever, daemon=True).start()
     log_event(
         logger,
         logging.INFO,

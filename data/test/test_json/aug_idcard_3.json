@@ -1,100 +1,110 @@
 {
   "ground_truth": {
-    "name": "이영식(廷宋泰)",
-    "resident_number": "950919-1085116",
-    "address": "세종특별자치시 마포구 역삼753로 602",
-    "issue_date": "2016.11.02.",
-    "issuing_authority": "전라남도 안동시장"
+    "name": "김정자(康元安)",
+    "resident_number": "090228-1116644",
+    "address": "강원특별자치도 청양군 석촌호수길 857",
+    "issue_date": "2023.11.22.",
+    "issuing_authority": "강원특별자치도 순천시장"
   },
   "detected": [
     {
-      "label": "name",
-      "confidence": 0.982,
+      "label": "resident_number",
+      "confidence": 0.988,
       "bbox": [
-        150.1,
-        319.5,
-        628.4,
-        409.8
+        150.0,
+        440.4,
+        778.2,
+        519.3
+      ]
+    },
+    {
+      "label": "name",
+      "confidence": 0.974,
+      "bbox": [
+        192.0,
+        333.3,
+        636.6,
+        419.5
+      ]
+    },
+    {
+      "label": "name",
+      "confidence": 0.969,
+      "bbox": [
+        192.7,
+        316.4,
+        634.7,
+        398.4
+      ]
+    },
+    {
+      "label": "issue_date",
+      "confidence": 0.968,
+      "bbox": [
+        678.3,
+        768.3,
+        985.0,
+        830.7
       ]
     },
     {
       "label": "resident_number",
-      "confidence": 0.977,
+      "confidence": 0.962,
       "bbox": [
-        101.9,
-        445.5,
-        800.7,
-        539.2
+        165.3,
+        466.2,
+        794.9,
+        548.6
       ]
     },
     {
       "label": "face",
-      "confidence": 0.973,
+      "confidence": 0.9,
       "bbox": [
-        957.0,
-        5.4,
-        1565.8,
-        584.8
+        943.3,
+        12.0,
+        1493.8,
+        586.4
       ]
     },
     {
-      "label": "name",
-      "confidence": 0.953,
+      "label": "address",
+      "confidence": 0.869,
       "bbox": [
-        146.9,
-        337.2,
-        632.6,
-        427.0
+        162.8,
+        588.0,
+        952.0,
+        660.8
       ]
     },
     {
-      "label": "issue_date",
-      "confidence": 0.927,
+      "label": "address",
+      "confidence": 0.532,
       "bbox": [
-        703.7,
-        773.7,
-        1034.5,
-        840.8
+        148.9,
+        553.0,
+        939.1,
+        620.3
+      ]
+    },
+    {
+      "label": "address",
+      "confidence": 0.402,
+      "bbox": [
+        160.9,
+        609.6,
+        854.9,
+        671.4
       ]
     },
     {
       "label": "resident_number",
-      "confidence": 0.903,
+      "confidence": 0.379,
       "bbox": [
-        117.1,
-        478.8,
-        825.6,
-        562.6
-      ]
-    },
-    {
-      "label": "address",
-      "confidence": 0.87,
-      "bbox": [
-        120.8,
-        594.8,
-        970.5,
-        685.1
-      ]
-    },
-    {
-      "label": "issue_date",
-      "confidence": 0.864,
-      "bbox": [
-        701.1,
-        785.8,
-        1034.1,
-        856.1
-      ]
-    },
-    {
-      "label": "address",
-      "confidence": 0.766,
-      "bbox": [
-        117.2,
-        585.7,
-        965.5,
-        657.5
+        158.9,
+        481.7,
+        816.9,
+        559.0
       ]
     }
   ]

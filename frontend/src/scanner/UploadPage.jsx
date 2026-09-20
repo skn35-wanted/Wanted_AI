@@ -884,7 +884,8 @@ export default function UploadPage({ onScan, error, busy, navigate }) {
               {mode !== 'text' && (
                 <p className="dropzone-card__note">
                   고해상도 이미지는 빠르고 안정적인 검사를 위해 장변 1,400px 기준으로 축소해 분석합니다.
-                  OCR이 필요한 PDF(스캔본)는 처음 8쪽까지 분석합니다.
+                  OCR이 필요한 PDF(스캔본)는 처음 8쪽까지 분석합니다. 텍스트 파일이 100KB를 넘으면
+                  전화번호·이메일·주민등록번호 등은 그대로 검사하되 사람·회사명 탐지는 생략합니다.
                 </p>
               )}
 
